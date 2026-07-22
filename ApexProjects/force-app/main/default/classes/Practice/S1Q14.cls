@@ -6,7 +6,7 @@ public with sharing class S1Q14 {
         Map<Id,Case>caseMap=new Map<Id,Case>();
         for(Case cur:caseList){
             priorities.add(cur.Priority);
-            caseMap.put(cur.Id,cur);
+            if(cur.Priority!=null)caseMap.put(cur.Id,cur);
             // if(set.size()==3)break;//considering we have only High,Medium,Low
         }
         System.debug(priorities.size()+' Prioties set size');
