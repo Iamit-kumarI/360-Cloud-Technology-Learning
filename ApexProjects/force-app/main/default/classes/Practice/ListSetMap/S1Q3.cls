@@ -1,6 +1,6 @@
 public with sharing class S1Q3 {
     public void fiveObjects(Integer noOfSubjectstoCreate) {
-        List<String>caseSubjects=new List<String>();
+        List<String>caseSubjects=new List<String>(noOfSubjectstoCreate);
         while(noOfSubjectstoCreate-->0){
             caseSubjects.add('I am subject '+noOfSubjectstoCreate+1);   
         }

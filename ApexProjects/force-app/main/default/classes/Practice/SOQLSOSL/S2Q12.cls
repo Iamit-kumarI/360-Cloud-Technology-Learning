@@ -28,7 +28,7 @@ public with sharing class S2Q12 {
         Integer n=3,index=0;
         while(index<n){
             Case cur=new Case();
-            if(index!=0)cur.AccountId='001g500000U09rhA'+String.valueOf(index).leftPad(2,'0');//incorrect id error
+            if(index!=0)cur.AccountId='001g500000U09rhA'+String.valueOf(index).leftPad(2,'0');
             else cur.AccountId='001g500000U09rhAAB';
             cur.Subject='I am dbSaveResult subject'+index;
             cur.Priority=(index&1)==0?'High':'Low';

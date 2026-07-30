@@ -5,6 +5,6 @@ public with sharing class S1Q5 {
         for(Case cur:caseObj){
             setObj.add(cur.AccountId);
         }
-        System.debug('No of unique account on case '+setObj.size());
+        System.debug('No of unique account on case'+setObj.size());
     }
 }

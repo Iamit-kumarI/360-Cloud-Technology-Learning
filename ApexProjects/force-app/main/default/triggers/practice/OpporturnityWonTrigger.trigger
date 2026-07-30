@@ -9,6 +9,5 @@ trigger OpporturnityWonTrigger on Opportunity (before insert,after update) {
             taskList.add(taskonOpp);
         }
     }
-    update taskList;
-
+    insert taskList;
 }

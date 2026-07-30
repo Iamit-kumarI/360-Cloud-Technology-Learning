@@ -13,8 +13,8 @@ trigger ContactTrigger on Contact (after insert,after update,after delete) {
     //     // if(Trigger.isAfter)insert Trigger.new;
     //     // if(Trigger.isUpdate)update Trigger.new;
     // }
-    // if(PreventRecursionContact.isRunning)return;
-    // PreventRecursionContact.isRunning=true;
+    if(PreventRecursionContact.isRunning)return;
+    PreventRecursionContact.isRunning=true;
     Set<Id>setId=new Set<Id>();
     if(Trigger.isInsert||Trigger.isUpdate){    
         for(Contact cur:trigger.new){
@@ -27,5 +27,5 @@ trigger ContactTrigger on Contact (after insert,after update,after delete) {
         }
     }
     // CountContactOnTrigger.CountContactOnTrigger(setId);
-    if(!setId.isEmpty())System.enqueueJob(new ContactCountA(setId));
+    // if(!setId.isEmpty())System.enqueueJob(new ContactCountA(setId));
 }
