@@ -1,0 +1,25 @@
+<template>
+    <lightning-card tital='High Priority Open Cases'>
+        <div class="slds-p-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={cases}
+                columns={columns}
+                onrowselection={handleRowSelection}
+            ></lightning-datatable>
+            <div class="slds-m-top_medium">
+                <lightning-input
+                    label="New Owner Id"
+                    value={ownerId}
+                    onchange={handleOwnerChange}
+                ></lightning-input>
+                <lightning-button
+                    class="slds-m-top_small"
+                    varian="brand"
+                    label="Ressagin Selected Cases"
+                    onclick={handleReassign}
+                ></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

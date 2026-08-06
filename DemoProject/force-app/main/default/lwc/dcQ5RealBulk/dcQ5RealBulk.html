@@ -1,0 +1,12 @@
+<template>
+    <lightning-card tital='High Priority Open Cases'>
+        <div class="slds-p-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={cases}
+                columns={columns}
+                onrowselection={handleRowSelection}
+            ></lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
