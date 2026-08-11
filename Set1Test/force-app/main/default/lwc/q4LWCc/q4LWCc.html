@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Overdue Team Tasks" icon-name="standard:task">
+        <div class="slds-p-around_medium">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+
+            <div class="slds-grid slds-gutters slds-m-bottom_medium slds-grid_vertical-align-end">
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-combobox
+                        name="owner"
+                        label="Reassign To"
+                        value={selectedOwnerId}
+                        placeholder="Select new owner"
+                        options={ownerOptions}
+                        onchange={handleOwnerChange}
+                    ></lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <lightning-button
+                        variant="brand"
+                        label="Reassign Selected Tasks"
+                        onclick={handleReassign}
+                        disabled={isReassignDisabled}
+                    ></lightning-button>
+                </div>
+            </div>
+
+            <lightning-datatable
+                key-field="Id"
+                data={tasks}
+                columns={columns}
+                onrowselection={handleRowSelection}
+            ></lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
