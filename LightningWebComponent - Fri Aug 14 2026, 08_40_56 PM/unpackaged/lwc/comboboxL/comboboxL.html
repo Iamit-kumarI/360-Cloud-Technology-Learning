@@ -1,0 +1,29 @@
+<template>
+    
+    <lightning-card title="Select Account" >
+        <lightning-combobox
+            name="progress"
+            label="Status"
+            value={value}
+            placeholder="Select Account"
+            options={options}
+            onchange={handleChange} >
+    </lightning-combobox>
+    <div class="tableWrapper">
+        <lightning-datatable
+            key-field="Id"
+            data={opportunities}
+            value={datavalue}
+            columns={columns}
+            onrowselection={handleRowSelection}>
+        </lightning-datatable>
+    </div>
+    <lightning-button 
+        variant="brand" 
+        label="Reassign Owner"
+        title="Reassign Owner" 
+        onclick={handleReassign}>
+    </lightning-button>
+    </lightning-card>
+    
+</template>
