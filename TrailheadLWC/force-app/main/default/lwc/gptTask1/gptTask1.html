@@ -1,5 +1,80 @@
 <template>
-    <lightning-card title="AccountId">
-        <p>{recordId}</p>
+
+    <lightning-card title="Account Contacts">
+
+        <lightning-input
+            type="search"
+            label="Search Contacts"
+            aria-placeholder="Search Contact..."
+            onchange={handleSearch}>
+        </lightning-input>
+
+        <lightning-button
+            label="New Contact"
+            variant="brand"
+            onclick={oepnT}>
+        </lightning-button>
+
+        <template if:true={isLoading}>
+            <lightning-spinner
+                alternative-text="Loading...">
+            </lightning-spinner>
+        </template>
+
+        <template if:true={hasContacts}>
+            <lightning-datatable
+                key-field="Id"
+                data={filteredContacts}
+                columns={columns}>
+            </lightning-datatable>
+        </template>
+
+        <template if:false={hasContacts}>
+            <p>
+                There is no contact related to this account.
+            </p>
+        </template>
+
     </lightning-card>
+
+    <template if:true={isOpen}>
+        <section
+            role="dialog"
+            tabindex="-1">
+                <header>
+                    <h2>Create Contact</h2>
+                </header>
+                <div >
+                    <lightning-input
+                        label="First Name"
+                        onchange={firstNameEntered}>
+                    </lightning-input>
+                    <lightning-input
+                        label="Last Name"
+                        onchange={lastNameEntered}>
+                    </lightning-input>
+                    <lightning-input
+                        type="email"
+                        label="Email"
+                        onchange={emailEntered}>
+                    </lightning-input>
+                </div>
+
+                <footer>
+                    <lightning-button
+                        label="Cancel"
+                        onclick={closeT}>
+                    </lightning-button>
+                    <lightning-button
+                        variant="brand"
+                        label="Save"
+                        onclick={handleSave}>
+                    </lightning-button>
+                </footer>
+        </section>
+
+        <div></div>
+
+    </template>
+
 </template>
