@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContactValidation</fullName>
+    <active>true</active>
+    <description>One contact can&apos;t have more than 20 Account</description>
+    <errorConditionFormula>Number_Of_Contacts__c &gt; 20</errorConditionFormula>
+    <errorDisplayField>Number_Of_Contacts__c</errorDisplayField>
+    <errorMessage>One Contact can&apos;t have more than 20 Account</errorMessage>
+</ValidationRule>

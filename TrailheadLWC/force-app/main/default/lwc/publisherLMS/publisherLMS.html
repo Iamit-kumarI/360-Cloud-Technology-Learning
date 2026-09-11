@@ -6,4 +6,11 @@
             onclick={handlePublish}
         ></lightning-button>
     </lightning-card>
+    <lightning-combobox
+        label="Select Contact"
+        value={value}
+        options={options}
+        placeholder="Select Contact"
+        onchange={handleChange}
+    ></lightning-combobox>
 </template>
